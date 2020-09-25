@@ -30,7 +30,7 @@ client.load_system_host_keys()
 #change key_filename to the location where your key is stored
 client.connect(hostname=instance[0].public_ip_address, username="ec2-user", key_filename='C:/Users/Sonu_2/Downloads/Ansible.pem')
 #change git clone to your github repository url
-stdin, stdout, stderr = client.exec_command('sudo yum install git -y && git clone https://github.com/becloudready/aws-python.git && sudo bash ~/aws-python/flaskApp/shell.sh')
+stdin, stdout, stderr = client.exec_command('sudo yum install git -y && git clone https://github.com/dantso/flask-app.git && sudo bash ~/aws-python/flaskApp/shell.sh')
 print (stdout.readlines())
 time.sleep(3)
 stdin, stdout, stderr = client.exec_command('python ~/aws-python/flaskApp/app.py &')
