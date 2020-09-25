@@ -33,12 +33,9 @@ client.connect(hostname=instance[0].public_ip_address, username="ec2-user", key_
 stdin, stdout, stderr = client.exec_command('sudo yum install git -y && git clone https://github.com/dantso/flask-app.git && sudo bash ~/flask-app/shell.sh')
 print (stdout.readlines())
 time.sleep(3)
-stdin, stdout, stderr = client.exec_command('python ~/aws-python/flaskApp/app.py &')
+stdin, stdout, stderr = client.exec_command('python ~/flaskApp/app.py &')
 print (stdout.readlines())
 time.sleep(3)
 #client.close()
 
 print ("Finished")
-
-creatEC2()
-sshConnection()
