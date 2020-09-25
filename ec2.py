@@ -33,7 +33,11 @@ client.connect(hostname=instance[0].public_ip_address, username="ec2-user", key_
 stdin, stdout, stderr = client.exec_command('sudo yum install git -y && git clone https://github.com/dantso/flask-app.git && sudo bash ~/flask-app/shell.sh')
 print (stdout.readlines())
 time.sleep(3)
+<<<<<<< HEAD
 stdin, stdout, stderr = client.exec_command('python ~/flask-app/app.py &')
+=======
+stdin, stdout, stderr = client.exec_command('python ~/flaskApp/app.py &')
+>>>>>>> 0d64b1f3805887b0dc461646c2f30b8c6c8ec4c6
 print (stdout.readlines())
 time.sleep(3)
 #client.close()
