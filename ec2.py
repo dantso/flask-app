@@ -21,7 +21,7 @@ print (instance[0].id)
 instance[0].wait_until_running()           
 instance[0].reload()
 print (instance[0].public_ip_address)
-time.sleep(10)
+time.sleep(15)
 
 client = paramiko.SSHClient()
 client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -33,12 +33,9 @@ client.connect(hostname=instance[0].public_ip_address, username="ec2-user", key_
 stdin, stdout, stderr = client.exec_command('sudo yum install git -y && git clone https://github.com/dantso/flask-app.git && sudo bash ~/flask-app/shell.sh')
 print (stdout.readlines())
 time.sleep(3)
-stdin, stdout, stderr = client.exec_command('python ~/aws-python/flaskApp/app.py &')
+stdin, stdout, stderr = client.exec_command('python ~/flask-app/app.py &')
 print (stdout.readlines())
 time.sleep(3)
 #client.close()
 
 print ("Finished")
-
-creatEC2()
-sshConnection()
