@@ -124,7 +124,7 @@ def launch_app(host_id, key_name, github_repo):
     stdin, stdout, stderr = client.exec_command('sudo yum install git -y && git clone '+github_repo+' && sudo bash ~/flask-app/shell.sh')
     print (stdout.readlines())
     time.sleep(3)
-    stdin, stdout, stderr = client.exec_command('python ~/flask-app/app.py &')
+    stdin, stdout, stderr = client.exec_command('sudo python ~/flask-app/app.py &')
     print (stdout.readlines())
     time.sleep(60)
     #client.close()
