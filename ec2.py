@@ -126,7 +126,6 @@ def launch_app(host_id, key_name, github_repo):
     time.sleep(3)
     stdin, stdout, stderr = client.exec_command('sudo python ~/flask-app/app.py &')
     print (stdout.readlines())
-    time.sleep(60)
     #client.close()
 
     print ("Finished")
