@@ -120,7 +120,7 @@ def launch_app(host_id, key_name, github_repo):
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
     client.load_system_host_keys()
-    client.connect(hostname=host_id, username="ec2-user", key_filename='./'+key_name+'.pem')
+    client.connect(hostname=host_id, username="ec2-user", key_filename='./key'+key_name+'.pem')
     stdin, stdout, stderr = client.exec_command('sudo yum install git -y && git clone '+github_repo+' && sudo bash ~/flask-app/shell.sh')
     print (stdout.readlines())
     time.sleep(3)
